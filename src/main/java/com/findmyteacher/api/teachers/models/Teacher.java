@@ -1,64 +1,43 @@
 package com.findmyteacher.api.teachers.models;
 
-import com.findmyteacher.api.locations.Location;
+import com.findmyteacher.api.locations.model.Coordinates;
 
 public class Teacher {
 
-    private int pcn;
-    private String firstName;
-    private String lastName;
-    private boolean isVisible;
+    private String iPcn;
+    private Coordinates coordinates;
 
-    private Location location;
+    public String getiPcn() {
+        return iPcn;
+    }
+
+    public void setiPcn(String iPcn) {
+        this.iPcn = iPcn;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
 
     public Teacher() {
+
     }
 
-    public Teacher(int pcn, String firstName, String lastName, boolean isVisible, Location location) {
-        this.pcn = pcn;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.isVisible = isVisible;
-        this.location = location;
+    public Teacher(String iPcn, Coordinates coordinates) {
+        this.iPcn = iPcn;
+        this.coordinates = coordinates;
     }
 
-    public int getPcn() {
-        return pcn;
-    }
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Teacher))
+            return false;
+        Teacher teacher = (Teacher) obj;
 
-    public void setPcn(int pcn) {
-        this.pcn = pcn;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public boolean isVisible() {
-        return isVisible;
-    }
-
-    public void setVisible(boolean visible) {
-        isVisible = visible;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
+        return iPcn.equals(((Teacher) obj).iPcn);
     }
 }

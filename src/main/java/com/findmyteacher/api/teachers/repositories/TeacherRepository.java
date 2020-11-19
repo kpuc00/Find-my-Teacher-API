@@ -9,13 +9,10 @@ import java.util.Set;
 @Repository
 public class TeacherRepository {
 
-    private Set<Teacher> teachers = new HashSet<>();
+    private final Set<Teacher> teachers = new HashSet<>();
 
     public Set<Teacher> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(Set<Teacher> teachers){
-        this.teachers = teachers;
-    }
 }

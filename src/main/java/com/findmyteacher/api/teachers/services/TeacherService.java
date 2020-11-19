@@ -5,59 +5,37 @@ import com.findmyteacher.api.teachers.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Service
 public class TeacherService {
 
     @Autowired
     private TeacherRepository teacherRepository;
 
-    public Set<Teacher> getAllVisibleTeachers(){
-        Set<Teacher> teachers = new HashSet<>();
-        for (Teacher teacher: teacherRepository.getTeachers()) {
-            if(teacher.isVisible()){
-                teachers.add(teacher);
-            }
-        }
-        return teachers;
-    }
-
-    public Teacher getTeacherByPcn(int pcn){
-        for (Teacher teacher: teacherRepository.getTeachers()) {
-            if(teacher.getPcn() == pcn){
-                return teacher;
-            }
+    public Teacher getByIPcn(String iPcn) {
+        for (Teacher t : this.teacherRepository.getTeachers()) {
+            if (t.getiPcn().equals(iPcn))
+                return t;
         }
         return null;
     }
 
-    public void updateTeacher(int pcn, Teacher newTeacher){
-        Teacher oldTeacher = getTeacherByPcn(pcn);
-        Set<Teacher> teachers = teacherRepository.getTeachers();
-        teachers.remove(oldTeacher);
-        teachers.add(newTeacher);
-        teacherRepository.setTeachers(teachers);
-    }
+    public void edit(Teacher teacher) { //create/update teachers
+        boolean updated = false; //keep track wether obj in new or exiting
 
-    public void updateTeachers(Set<Teacher> newTeachers){
-        Set<Teacher> teachers = teacherRepository.getTeachers();
-
-        Teacher[] newTeachersArray = new Teacher[newTeachers.size()];
-        newTeachersArray = newTeachers.toArray(newTeachersArray);
-
-        for (int i = 0; i <= newTeachers.size(); i++) {
-            teachers.remove(getTeacherByPcn(newTeachersArray[i].getPcn()));
-            teachers.add(newTeachersArray[i]);
+        for (Teacher t: this.teacherRepository.getTeachers()) { //check if obj exists
+            if (t.equals(teacher)) {
+                this.teacherRepository.getTeachers().remove(t);
+                this.teacherRepository.getTeachers().add(teacher);
+                updated = true;
+                break;
+            }
         }
 
-        teacherRepository.setTeachers(teachers);
+        if (!updated) //add to the end if not exists
+            this.teacherRepository.getTeachers().add(teacher);
     }
 
-    public void addTeacher(Teacher teacher){
-        Set<Teacher> teachers = teacherRepository.getTeachers();
-        teachers.add(teacher);
-        teacherRepository.setTeachers(teachers);
+    public void destroy(String iPcn) {
+        this.teacherRepository.getTeachers().remove(this.getByIPcn(iPcn));
     }
 }
