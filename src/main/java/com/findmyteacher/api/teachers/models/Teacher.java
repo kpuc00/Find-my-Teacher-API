@@ -38,6 +38,6 @@ public class Teacher {
             return false;
         Teacher teacher = (Teacher) obj;
 
-        return iPcn.equals(((Teacher) obj).iPcn);
+        return iPcn.equals(((Teacher) obj).getiPcn());
     }
 }
