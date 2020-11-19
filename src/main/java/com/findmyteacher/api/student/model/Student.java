@@ -1,11 +1,18 @@
-package com.findmyteacher.api.student;
+package com.findmyteacher.api.student.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 import java.util.Set;
 
+@Document
 public class Student {
 
+    @Id
     private String iPcn;
-    private Set<Favourites> favourites;
+
+    private Set<String> favourites;
 
     public String getiPcn() {
         return iPcn;
@@ -15,11 +22,11 @@ public class Student {
         this.iPcn = iPcn;
     }
 
-    public Set<Favourites> getFavourites() {
+    public Set<String> getFavourites() {
         return favourites;
     }
 
-    public void setFavourites(Set<Favourites> favourites) {
+    public void setFavourites(Set<String> favourites) {
         this.favourites = favourites;
     }
 
@@ -27,7 +34,7 @@ public class Student {
 
     }
 
-    public Student(String iPcn, Set<Favourites> favourites) {
+    public Student(String iPcn, Set<String> favourites) {
         this.iPcn = iPcn;
         this.favourites = favourites;
     }

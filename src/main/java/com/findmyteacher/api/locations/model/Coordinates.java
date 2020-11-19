@@ -4,7 +4,7 @@ public class Coordinates {
 
     private float x;
     private float y;
-    private String floorHierarchy;
+    private String mapHierarchyFloor;
 
     public float getX() {
         return x;
@@ -23,20 +23,20 @@ public class Coordinates {
     }
 
     public String getFloorHierarchy() {
-        return floorHierarchy;
+        return mapHierarchyFloor;
     }
 
-    public void setFloorHierarchy(String floorHierarchy) {
-        this.floorHierarchy = floorHierarchy;
+    public void setFloorHierarchy(String mapHierarchyFloor) {
+        this.mapHierarchyFloor = mapHierarchyFloor;
     }
 
     public Coordinates() {
 
     }
 
-    public Coordinates(float x, float y, String floorHierarchy) {
+    public Coordinates(float x, float y, String mapHierarchyFloor) {
         this.x = x;
         this.y = y;
-        this.floorHierarchy = floorHierarchy;
+        this.mapHierarchyFloor = mapHierarchyFloor;
     }
 }
