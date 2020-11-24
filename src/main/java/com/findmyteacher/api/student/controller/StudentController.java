@@ -14,17 +14,17 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/{iPcn}")
-    public ResponseEntity<Student> getByIPcn(String iPcn) {
+    @GetMapping("/{iPcn}/favourites")
+    public ResponseEntity<Student> getByIPcn(@PathVariable String iPcn) {
         return ResponseEntity.ok(this.studentService.getByIPcn(iPcn));
     }
 
-    @PutMapping("/edit")
+    @PutMapping("/edit/favourites")
     public void edit(@RequestBody Student student) {
         this.studentService.edit(student);
     }
 
-    @DeleteMapping("/delete/{iPcn}")
+    @DeleteMapping("/delete/{iPcn}/favourites")
     public void delete(@PathVariable String iPcn) {
         this.studentService.destroy(iPcn);
     }

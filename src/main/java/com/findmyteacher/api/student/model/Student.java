@@ -1,17 +1,21 @@
 package com.findmyteacher.api.student.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Document
+@Entity
 public class Student {
 
     @Id
     private String iPcn;
 
+    @ElementCollection
     private Set<String> favourites;
 
     public String getiPcn() {

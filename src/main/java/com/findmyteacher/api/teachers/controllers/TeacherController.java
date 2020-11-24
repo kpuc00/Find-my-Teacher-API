@@ -16,19 +16,19 @@ public class TeacherController {
     private TeacherService teacherService;
 
     //return teacher by IPcn
-    @GetMapping("/{iPcn}")
+    @GetMapping("/{iPcn}/location")
     public ResponseEntity<Teacher> getByIPcn(@PathVariable String iPcn) {
         return ResponseEntity.ok(this.teacherService.getByIPcn(iPcn));
     }
 
     //create/update teacher
-    @PutMapping("/edit")
+    @PutMapping("/edit/location")
     public void edit(@RequestBody Teacher teacher) {
         this.teacherService.edit(teacher);
     }
 
     //delete teacher
-    @DeleteMapping("/delete/{iPcn}")
+    @DeleteMapping("/delete/{iPcn}/location")
     public void destroy(@PathVariable String iPcn) {
         this.teacherService.destroy(iPcn);
     }
