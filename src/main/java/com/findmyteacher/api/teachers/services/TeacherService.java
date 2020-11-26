@@ -3,6 +3,7 @@ package com.findmyteacher.api.teachers.services;
 import com.findmyteacher.api.teachers.models.Teacher;
 import com.findmyteacher.api.teachers.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,7 @@ public class TeacherService {
         return null;
     }
 
+    @Async
     public void edit(Teacher teacher) { //create/update teachers
         boolean updated = false; //keep track wether obj in new or exiting
 
@@ -35,6 +37,7 @@ public class TeacherService {
             this.teacherRepository.getTeachers().add(teacher);
     }
 
+    @Async
     public void destroy(String iPcn) {
         this.teacherRepository.getTeachers().remove(this.getByIPcn(iPcn));
     }

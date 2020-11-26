@@ -22,11 +22,11 @@ public class Coordinates {
         this.y = y;
     }
 
-    public String getFloorHierarchy() {
+    public String getMapHierarchyFloor() {
         return mapHierarchyFloor;
     }
 
-    public void setFloorHierarchy(String mapHierarchyFloor) {
+    public void setMapHierarchyFloor(String mapHierarchyFloor) {
         this.mapHierarchyFloor = mapHierarchyFloor;
     }
 
