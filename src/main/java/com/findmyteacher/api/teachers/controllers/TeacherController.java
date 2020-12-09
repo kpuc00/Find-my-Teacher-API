@@ -33,5 +33,4 @@ public class TeacherController {
     public void destroy(@PathVariable String iPcn) {
         this.teacherService.destroy(iPcn);
     }
-
 }
