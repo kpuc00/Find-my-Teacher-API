@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Controller
 public class MessageMapper {
 
+	//add/edit teacher's location
 	@MessageMapping("/edit/location")
 	@SendTo("/locations")
 	public String getTeacher(String teacher) {
