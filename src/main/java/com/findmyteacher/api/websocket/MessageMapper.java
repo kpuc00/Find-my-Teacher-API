@@ -1,4 +1,4 @@
-package com.findmyteacher.api.websocketsDemo;
+package com.findmyteacher.api.websocket;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
-public class GreetingController {
+public class MessageMapper {
 
 	@MessageMapping("/edit/location")
 	@SendTo("/locations")
-	public String greeting(String teacher) {
+	public String getTeacher(String teacher) {
 		return teacher;
 	}
 }

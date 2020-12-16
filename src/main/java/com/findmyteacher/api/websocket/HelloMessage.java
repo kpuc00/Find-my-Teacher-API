@@ -1,4 +1,4 @@
-package com.findmyteacher.api.websocketsDemo;
+package com.findmyteacher.api.websocket;
 
 public class HelloMessage {
 

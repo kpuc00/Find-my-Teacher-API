@@ -1,4 +1,4 @@
-package com.findmyteacher.api.websocketsDemo;
+package com.findmyteacher.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
